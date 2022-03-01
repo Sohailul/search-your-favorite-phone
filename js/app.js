@@ -10,7 +10,7 @@ const searchPhone = () => {
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
         fetch(url)
             .then(response => response.json())
-            .then(data => displaySearchResult(data.data));
+            .then(data => displaySearchResult(data.data.slice(0,20)));
     }
 }
 
@@ -21,21 +21,23 @@ const displaySearchResult = phones => {
     if(phones.length == 0){
         document.getElementById('not-found').style.visibility = 'visible';
     }
-    for (const phone of phones) {
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
-        <div class="card h-100">
-            <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
-            <div class="card-body text-center">
-                <h5 class="card-title">Name: ${phone.phone_name}</h5>
-                <p class="card-text">Brand Name: ${phone.brand}</p>
+    //if(phones.length <= 20){
+        for (const phone of phones) {
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = `
+            <div class="card h-100">
+                <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Name: ${phone.phone_name}</h5>
+                    <p class="card-text">Brand Name: ${phone.brand}</p>
+                </div>
+                <div class="card-footer text-center"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">Show Details</button></div>
             </div>
-            <div class="card-footer text-center"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">Show Details</button></div>
-        </div>
-    `;
-        searchResult.appendChild(div);
-    };
+        `;
+            searchResult.appendChild(div);
+        };
+    //}
 
 }
 
