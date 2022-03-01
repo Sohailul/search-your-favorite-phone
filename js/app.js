@@ -73,7 +73,7 @@ const displayPhoneDetails = phone =>  {
             <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Name: ${phone.name}</h5>
-                <h6 class="card-text">Release Date: ${phone.releaseDate}</h6>
+                <h6 class="card-text">Release Date: ${phone.releaseDate ? phone.releaseDate:'Released Date Not Found'} </h6>
                 <h6 class="card-text">Brand Name: ${phone.brand}</h6>
                 <h6 class="card-text">Main Features: <ul>
                 <li>Storage: ${phone.mainFeatures.storage}</li>
