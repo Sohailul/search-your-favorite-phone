@@ -26,6 +26,7 @@ const toggleSearchResult = displayStyle =>{
 const displaySearchResult = phones => {
     console.log(phones);
     const searchResult = document.getElementById('search-result');
+    //Spinner
     toggleSpinner('visible');
     toggleSearchResult('hidden');
     searchResult.textContent = '';
@@ -36,17 +37,19 @@ const displaySearchResult = phones => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-            <div class="card h-100">
+            <div class="card h-100 border-success">
                 <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">Name: ${phone.phone_name}</h5>
                     <p class="card-text">Brand Name: ${phone.brand}</p>
                 </div>
-                <div class="card-footer text-center"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">Show Details</button></div>
+                <div class="card-footer text-center"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-success">Show Details</button></div>
             </div>
         `;
             searchResult.appendChild(div);
         };
+
+        //spinner
     toggleSpinner('hidden');
     toggleSearchResult('visible');
 
