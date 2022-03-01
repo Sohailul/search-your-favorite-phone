@@ -14,14 +14,24 @@ const searchPhone = () => {
     }
 }
 
+//Display spinner
+const toggleSpinner = displayStyle =>{
+    document.getElementById('spinner').style.visibility = displayStyle;
+}
+const toggleSearchResult = displayStyle =>{
+    document.getElementById('search-result').style.visibility = displayStyle;
+}
+
+
 const displaySearchResult = phones => {
     console.log(phones);
     const searchResult = document.getElementById('search-result');
+    toggleSpinner('visible');
+    toggleSearchResult('hidden');
     searchResult.textContent = '';
     if(phones.length == 0){
         document.getElementById('not-found').style.visibility = 'visible';
     }
-    //if(phones.length <= 20){
         for (const phone of phones) {
             const div = document.createElement('div');
             div.classList.add('col');
@@ -37,7 +47,8 @@ const displaySearchResult = phones => {
         `;
             searchResult.appendChild(div);
         };
-    //}
+    toggleSpinner('hidden');
+    toggleSearchResult('visible');
 
 }
 
