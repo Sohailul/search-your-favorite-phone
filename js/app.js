@@ -18,17 +18,20 @@ const displaySearchResult = phones => {
     console.log(phones);
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    if(phones.length == 0){
+        document.getElementById('not-found').style.visibility = 'visible';
+    }
     for (const phone of phones) {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
         <div class="card h-100">
-            <img src="${phone.image}" class="card-img-top w-50" alt="...">
-            <div class="card-body">
+            <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
+            <div class="card-body text-center">
                 <h5 class="card-title">Name: ${phone.phone_name}</h5>
                 <p class="card-text">Brand Name: ${phone.brand}</p>
             </div>
-            <div class="card-footer"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">Details</button></div>
+            <div class="card-footer text-center"><button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary">Show Details</button></div>
         </div>
     `;
         searchResult.appendChild(div);
@@ -46,22 +49,33 @@ const loadPhoneDetails = phoneId => {
 const displayPhoneDetails = phone =>  {
     console.log(phone);
     const phoneDetailsDiv = document.getElementById('phone-details');
+    phoneDetailsDiv.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
         <div class="card h-100">
-            <img src="${phone.image}" class="card-img-top w-50" alt="...">
+            <img src="${phone.image}" class="card-img-top w-50 rounded mx-auto d-block" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Name: ${phone.name}</h5>
-                <h6 class="card-title">Release Date: ${phone.releaseDate}</h6>
+                <h6 class="card-text">Release Date: ${phone.releaseDate}</h6>
                 <h6 class="card-text">Brand Name: ${phone.brand}</h6>
                 <h6 class="card-text">Main Features: <ul>
                 <li>Storage: ${phone.mainFeatures.storage}</li>
                 <li>Display Size: ${phone.mainFeatures.displaySize}</li>
-                <li>chip Set: ${phone.mainFeatures.chipSet}</li>
+                <li>Chip Set: ${phone.mainFeatures.chipSet}</li>
                 <li>Memory: ${phone.mainFeatures.memory}</li>
-                <li>sensors: ${phone.mainFeatures.sensors}</li>
+                <li>Sensors: ${phone.mainFeatures.sensors}</li>
                 </ul></h6>
+                <h6>Others:
+                <ul>
+                <li>Bluetooth: ${phone.others.Bluetooth}</li>
+                <li>GPS: ${phone.others.GPS}</li>
+                <li>NFC: ${phone.others.NFC}</li>
+                <li>Radio: ${phone.others.Radio}</li>
+                <li>USB: ${phone.others.USB}</li>
+                <li>WLAN: ${phone.others.WLAN}</li>
+                </ul>
+                </h6>
             </div>
         </div>
     `;
