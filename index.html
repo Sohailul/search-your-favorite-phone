@@ -12,29 +12,31 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h2 class="text-center text-success mt-4 mb-4">Search your Favorite Brand's Phone</h2>
-    <!-- meal search area -->
-    <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Search the food you want"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
-            id="button-search">search</button>
-    </div>
-    <!-- Error Message -->
-    <div id="error-message" class="text-danger">Write Something for searching</div>
+    <div class="container">
+        <h2 class="text-center text-success mt-4 mb-4">Search your Favorite Brand's Phone</h2>
+        <!-- meal search area -->
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="search-field" type="text" class="form-control" placeholder="Search the food you want"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
+                id="button-search">search</button>
+        </div>
+        <!-- Error Message -->
+        <div id="error-message" class="text-danger">Write Something for searching</div>
 
-    <!-- single meal details -->
-    <div id="phone-details" class=" w-50 mx-auto">
-    </div>
+        <!-- single meal details -->
+        <div id="phone-details" class=" w-50 mx-auto">
+        </div>
 
-    <!-- meal search result -->
-    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- meal search result -->
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        </div>
     </div>
 
     <!-- Scripts -->
